@@ -69,16 +69,16 @@ var hasRequire = typeof require === 'function';
         };
 
         if (cardCtrl.numberInput && cardCtrl.numberInput.length > 0) {
-          opts.formSelectors.numberInput = 'input[name="' + cardCtrl.numberInput[0].name + '"]';
+          opts.formSelectors.numberInput = 'input[id="' + cardCtrl.numberInput[0].id + '"]';
         }
         if (cardCtrl.expiryInput && cardCtrl.expiryInput.length > 0) {
-          opts.formSelectors.expiryInput = 'input[name="' + cardCtrl.expiryInput[0].name + '"]';
+          opts.formSelectors.expiryInput = 'input[id="' + cardCtrl.expiryInput[0].id + '"]';
         }
         if (cardCtrl.cvcInput && cardCtrl.cvcInput.length > 0) {
-          opts.formSelectors.cvcInput = 'input[name="' + cardCtrl.cvcInput[0].name + '"]';
+          opts.formSelectors.cvcInput = 'input[id="' + cardCtrl.cvcInput[0].id + '"]';
         }
         if (cardCtrl.nameInput && cardCtrl.nameInput.length > 0) {
-          opts.formSelectors.nameInput = 'input[name="' + cardCtrl.nameInput[0].name + '"]';
+          opts.formSelectors.nameInput = 'input[id="' + cardCtrl.nameInput[0].id + '"]';
         }
 
         new Card(opts);
