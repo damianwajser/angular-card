@@ -2,7 +2,7 @@
   "name": "angular-card",
   "version": "0.3.10",
   "authors": [
-    "Sergey Gavruk <svgavruk@gmail.com>"
+    "Damian Wajser <wajser@gmail.com>"
   ],
   "description": "Angular directive for card https://github.com/jessepollak/card",
   "main": "src/card.js",
