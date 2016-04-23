@@ -1,14 +1,13 @@
 var hasRequire = typeof require === 'function';
 
-(function (window, document, Card, angular, undefined) {
+(function(window, document, Card, angular, undefined) {
   'use strict';
   angular
     .module('gavruk.card', [])
 
-  .controller('CardCtrl', ['$scope', function ($scope) {
-  }])
+  .controller('CardCtrl', ['$scope', function($scope) {}])
 
-  .directive('card', ['$compile', function ($compile) {
+  .directive('card', ['$compile', function($compile) {
     return {
       restrict: 'A',
       scope: {
@@ -19,7 +18,7 @@ var hasRequire = typeof require === 'function';
         messages: '=',
       },
       controller: 'CardCtrl',
-      link: function (scope, element, attributes, cardCtrl) {
+      link: function(scope, element, attributes, cardCtrl) {
         var defaultPlaceholders = {
           number: '•••• •••• •••• ••••',
           name: 'Full Name',
@@ -69,16 +68,20 @@ var hasRequire = typeof require === 'function';
         };
 
         if (cardCtrl.numberInput && cardCtrl.numberInput.length > 0) {
-          opts.formSelectors.numberInput = 'input[id="' + cardCtrl.numberInput[0].id + '"]';
+          opts.formSelectors.numberInput = 'input[id="' + cardCtrl.numberInput[
+            0].id + '"]';
         }
         if (cardCtrl.expiryInput && cardCtrl.expiryInput.length > 0) {
-          opts.formSelectors.expiryInput = 'input[id="' + cardCtrl.expiryInput[0].id + '"]';
+          opts.formSelectors.expiryInput = 'input[id="' + cardCtrl.expiryInput[
+            0].id + '"]';
         }
         if (cardCtrl.cvcInput && cardCtrl.cvcInput.length > 0) {
-          opts.formSelectors.cvcInput = 'input[id="' + cardCtrl.cvcInput[0].id + '"]';
+          opts.formSelectors.cvcInput = 'input[id="' + cardCtrl.cvcInput[
+            0].id + '"]';
         }
         if (cardCtrl.nameInput && cardCtrl.nameInput.length > 0) {
-          opts.formSelectors.nameInput = 'input[id="' + cardCtrl.nameInput[0].id + '"]';
+          opts.formSelectors.nameInput = 'input[id="' + cardCtrl.nameInput[
+            0].id + '"]';
         }
 
         new Card(opts);
@@ -86,7 +89,7 @@ var hasRequire = typeof require === 'function';
     };
   }])
 
-  .directive('cardNumber', ['$compile', function ($compile) {
+  .directive('cardNumber', ['$compile', function($compile) {
     return {
       restrict: 'A',
       scope: {
@@ -96,17 +99,17 @@ var hasRequire = typeof require === 'function';
         '^card',
         'ngModel'
       ],
-      link: function (scope, element, attributes, ctrls) {
+      link: function(scope, element, attributes, ctrls) {
         var cardCtrl = ctrls[0];
         cardCtrl.numberInput = element;
-        scope.$watch('ngModel', function (newVal, oldVal) {
+        scope.$watch('ngModel', function(newVal, oldVal) {
           if (!oldVal && !newVal) {
             return;
           }
           if (oldVal === newVal && !newVal) {
             return;
           }
-
+          element[0].value = element[0].value.replace(/ /g, '');
           var evt = document.createEvent('HTMLEvents');
           evt.initEvent('keyup', false, true);
           element[0].dispatchEvent(evt);
@@ -115,7 +118,7 @@ var hasRequire = typeof require === 'function';
     };
   }])
 
-  .directive('cardName', ['$compile', function ($compile) {
+  .directive('cardName', ['$compile', function($compile) {
     return {
       restrict: 'A',
       scope: {
@@ -125,10 +128,10 @@ var hasRequire = typeof require === 'function';
         '^card',
         'ngModel'
       ],
-      link: function (scope, element, attributes, ctrls) {
+      link: function(scope, element, attributes, ctrls) {
         var cardCtrl = ctrls[0];
         cardCtrl.nameInput = element;
-        scope.$watch('ngModel', function (newVal, oldVal) {
+        scope.$watch('ngModel', function(newVal, oldVal) {
           if (!oldVal && !newVal) {
             return;
           }
@@ -144,7 +147,7 @@ var hasRequire = typeof require === 'function';
     };
   }])
 
-  .directive('cardExpiry', ['$compile', function ($compile) {
+  .directive('cardExpiry', ['$compile', function($compile) {
     return {
       restrict: 'A',
       scope: {
@@ -154,10 +157,10 @@ var hasRequire = typeof require === 'function';
         '^card',
         'ngModel'
       ],
-      link: function (scope, element, attributes, ctrls) {
+      link: function(scope, element, attributes, ctrls) {
         var cardCtrl = ctrls[0];
         cardCtrl.expiryInput = element;
-        scope.$watch('ngModel', function (newVal, oldVal) {
+        scope.$watch('ngModel', function(newVal, oldVal) {
           if (!oldVal && !newVal) {
             return;
           }
@@ -173,7 +176,7 @@ var hasRequire = typeof require === 'function';
     };
   }])
 
-  .directive('cardCvc', ['$compile', function ($compile) {
+  .directive('cardCvc', ['$compile', function($compile) {
     return {
       restrict: 'A',
       scope: {
@@ -183,10 +186,10 @@ var hasRequire = typeof require === 'function';
         '^card',
         'ngModel'
       ],
-      link: function (scope, element, attributes, ctrls) {
+      link: function(scope, element, attributes, ctrls) {
         var cardCtrl = ctrls[0];
         cardCtrl.cvcInput = element;
-        scope.$watch('ngModel', function (newVal, oldVal) {
+        scope.$watch('ngModel', function(newVal, oldVal) {
           if (!oldVal && !newVal) {
             return;
           }
@@ -202,8 +205,9 @@ var hasRequire = typeof require === 'function';
     };
   }]);
 
-})(window, window.document, hasRequire ? require('card') : window.Card, hasRequire ? require('angular') : window.angular);
+})(window, window.document, hasRequire ? require('card') : window.Card,
+  hasRequire ? require('angular') : window.angular);
 
-if(typeof module !== 'undefined') {
+if (typeof module !== 'undefined') {
   module.exports = 'gavruk.card';
 }

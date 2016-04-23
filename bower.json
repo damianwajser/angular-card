@@ -2,7 +2,7 @@
   "name": "angular-card",
   "version": "0.3.10",
   "authors": [
-    "Sergey Gavruk <svgavruk@gmail.com>"
+    "Damian Wajser <wajser@gmail.com>"
   ],
   "description": "Angular directive for card https://github.com/jessepollak/card",
   "main": "src/card.js",
@@ -13,7 +13,7 @@
     "credit"
   ],
   "dependencies": {
-    "card": "https://github.com/damianwajser/card.git",
+    "card": "https://github.com/damianwajser/card.git#1.2.5",
     "angular": "~1.4.8"
   },
   "license": "MIT",
