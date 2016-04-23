@@ -13,7 +13,7 @@
     "credit"
   ],
   "dependencies": {
-    "card": "https://github.com/damianwajser/card.git#1.2.5",
+    "card": "https://github.com/damianwajser/card.git#1.2.6",
     "angular": "~1.4.8"
   },
   "license": "MIT",
